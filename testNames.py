@@ -98,19 +98,91 @@ def testName(filename):
 
 ###############################################################################################################
 
-failed = ''
-passed = ''
 
-# common english words, 100 passed
-f = open('common-english-usa-10000.txt', 'r')
-for word in f:
+passed = open('passed.txt', 'w')
+failed = open('failed.txt', 'w')
+
+# common english words
+commonWords = open('common-english-usa-1000.txt', 'r')
+for word in commonWords:
     filename = word.strip()
     print(filename)
     result = testName(filename)
     if (not result):
-        failed = "{0}\n {1}".format(failed, filename).strip()
+        failed.write("{0}\n".format(filename))
+        failed.flush()
     else:
-        passed = "{0}\n {1}".format(passed, filename).strip()
+        passed.write("{0}\n".format(filename))
+        passed.flush()
+
+
+passed.close()
+failed.close()
+
+# passed2 = open('passed2.txt', 'w')
+# failed2 = open('failed2.txt', 'w')
+
+# # common english words
+# commonWords = open('failed.txt', 'r')
+# for word in commonWords:
+#     filename = word.strip()
+#     print(filename)
+#     result = testName(filename)
+#     if (not result):
+#         failed2.write("{0}\n".format(filename))
+#         failed2.flush()
+#     else:
+#         passed2.write("{0}\n".format(filename))
+#         passed2.flush()
+
+
+# passed2.close()
+# failed2.close()
+
+
+# passed3 = open('passed3.txt', 'w')
+# failed3 = open('failed3.txt', 'w')
+
+# # common english words
+# commonWords = open('failed2.txt', 'r')
+# for word in commonWords:
+#     filename = word.strip()
+#     print(filename)
+#     result = testName(filename)
+#     if (not result):
+#         failed3.write("{0}\n".format(filename))
+#         failed3.flush()
+#     else:
+#         passed3.write("{0}\n".format(filename))
+#         passed3.flush()
+
+
+# passed3.close()
+# failed3.close()
+
+# passed4 = open('passed4.txt', 'w')
+# failed4 = open('failed4.txt', 'w')
+
+# # common english words
+# commonWords = open('failed3.txt', 'r')
+# for word in commonWords:
+#     filename = word.strip()
+#     print(filename)
+#     result = testName(filename)
+#     if (not result):
+#         failed4.write("{0}\n".format(filename))
+#         failed4.flush()
+#     else:
+#         passed4.write("{0}\n".format(filename))
+#         passed4.flush()
+
+
+# passed4.close()
+# failed4.close()
+
+
+failed = ''
+passed = ''
 
 # ascii symbols
 # do not use 
@@ -201,7 +273,7 @@ for word in f:
 
 
 # manual test
-# filenames = ["a!a", "a#a", "a$a", "a%a", "a&a", "a(a", "a)a", "a+a", "a,a", "a;a", "a=a", "a@a", "a[a", "a]a", "a^a", "a`a", "a{a", "a}a", "a~a", "aa"]
+# filenames = ["working"]
 # for filename in filenames:
 #     print(filename)
 #     result = testName(filename)
